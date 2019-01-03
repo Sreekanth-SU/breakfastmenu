@@ -1,8 +1,9 @@
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class ParseXmlTest extends Specification {
 
-    def "should get brekfast menu for given xml file"(){
+    def "should get breakfast menu for given xml file"(){
         given:
         def inputFileName = "menuTest.xml"
         ParseXml parseXml = new ParseXml()
@@ -17,6 +18,26 @@ class ParseXmlTest extends Specification {
         result.food[0].name.equalsIgnoreCase("Belgian Waffles")
         result.food[0].price.equalsIgnoreCase($/$5.95/$)
         result.food[0].calories == 650
+    }
+
+    @Unroll
+    def "should get breakfast menu for with sorted list order by #sortOrder"(){
+        given:
+        def inputFileName = "menuTest.xml"
+        ParseXml parseXml = new ParseXml()
+        BreakfastMenu menu = new BreakfastMenu()
+
+        when:
+        def result = menu.sortFoodListByNameAndOrder(parseXml.getBreakfastMenuFromXml(inputFileName).food,sortOrder)
+
+        then:
+        result.size() == 5
+        result[0].name == name
+
+        where:
+        sortOrder | name
+        "asc"     | "Belgian Waffles"
+        "desc"    | "Strawberry Belgian Waffles"
     }
 
     def "Should throw Exception for Invalid File Name"(){

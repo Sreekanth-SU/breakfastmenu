@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ParseXmlTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-01-03T13:03:48" hostname="L10-PC0QPPHF" time="0.07">
+<testsuite name="ParseXmlTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-01-03T20:04:00" hostname="L10-PC0QPPHF" time="0.113">
   <properties/>
-  <testcase name="should get brekfast menu for given xml file" classname="ParseXmlTest" time="0.066"/>
-  <testcase name="Should throw Exception for Invalid File Name" classname="ParseXmlTest" time="0.004"/>
+  <testcase name="should get breakfast menu for given xml file" classname="ParseXmlTest" time="0.087"/>
+  <testcase name="should get breakfast menu for with sorted list order by asc" classname="ParseXmlTest" time="0.009"/>
+  <testcase name="should get breakfast menu for with sorted list order by desc" classname="ParseXmlTest" time="0.008"/>
+  <testcase name="Should throw Exception for Invalid File Name" classname="ParseXmlTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

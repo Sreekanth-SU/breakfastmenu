@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'groovy'
+}
+
+group 'menu'
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'Menu'
+        )
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.2-groovy-2.4'
+}
